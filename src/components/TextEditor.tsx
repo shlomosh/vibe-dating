@@ -9,10 +9,10 @@ interface TextEditorProps {
     className?: string;
 }
 
-export const TextEditor: FC<TextEditorProps> = ({ 
-    label, 
-    placeholder, 
-    value, 
+export const TextEditor: FC<TextEditorProps> = ({
+    label,
+    placeholder,
+    value,
     onChange,
     className = ""
 }) => {
@@ -20,7 +20,7 @@ export const TextEditor: FC<TextEditorProps> = ({
         <div className={className}>
             {label && <span className="text-sm text-foreground/80 px-1">{label}</span>}
             <Textarea
-                className='text-sm text-foreground' 
+                className='text-sm text-foreground'
                 placeholder={placeholder}
                 value={value}
                 onChange={(e) => onChange?.(e.target.value)}

@@ -29,7 +29,7 @@ export const Content: FC<ContentProps> = ({ children, className = '', itemsAlign
     const safeInsets = useSignal(viewportSafeAreaInsets) ?? { top: 0, bottom: 0, left: 0, right: 0 };
 
     return (
-        <div 
+        <div
             className={`relative h-full flex flex-col items-${itemsAlign} justify-end ${className}`}
             style={{
                 paddingTop: `${extraTopPadding + safeInsets.top}px`,
