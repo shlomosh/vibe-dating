@@ -1,5 +1,5 @@
 import type { FC, ReactNode } from 'react';
-import React, { act } from 'react';
+import React from 'react';
 import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 
@@ -23,6 +23,8 @@ import { useLanguage } from '@/contexts/LanguageContext';
 import { ProfileId, ProfileRecord, defaultProfile } from '@/types/profile';
 import { generateRandomId } from '@/utils/generator';
 import { cn } from '@/lib/utils';
+
+import { mockProfileImageUrls } from '@/mock/profile';
 
 const ProfileSelect: FC<{ selectCfg: { label?: string | ReactNode, options: any }, className?: string, enableClearOption?: boolean, disabled?: boolean, value?: string, onValueChange?: (value: string) => void }> = ({ selectCfg, className = "", enableClearOption = true, disabled = false, value = '--', onValueChange }) => {
     const emptyValue = '--';
@@ -60,12 +62,7 @@ const ProfileAlbumCarousel = () => {
     useEffect(() => {
         const loadImages = async () => {
             // Using Lorem Picsum for random placeholder images
-            const imageUrls = [
-                'https://picsum.photos/800/1200?random=1',
-                'https://picsum.photos/800/1200?random=2',
-                'https://picsum.photos/800/1200?random=3',
-                'https://picsum.photos/800/1200?random=4',
-            ];
+            const imageUrls = mockProfileImageUrls;
 
             setImages(imageUrls);
         };
@@ -373,7 +370,7 @@ export const ProfileSetupPage: FC = () => {
     }
 
     const handleNextPageClick = () => {
-        navigate('/location-setup');
+        navigate('/location');
     }
 
     const handleDeleteProfile = async () => {
@@ -390,10 +387,7 @@ export const ProfileSetupPage: FC = () => {
 
         const newProfileId = generateRandomId();
         const newProfileDB = { ...profileDB };
-        newProfileDB.db[newProfileId] = {
-            ...profileRecord,
-            profileName: newProfileName
-        };
+        newProfileDB.db[newProfileId] = {...profileRecord, profileName: newProfileName };
         newProfileDB.id = newProfileId;
         await setProfileDB(newProfileDB);
     }
@@ -402,27 +396,6 @@ export const ProfileSetupPage: FC = () => {
         obj[id] = profileDB?.db[id]?.profileName || id;
         return obj;
     }, {} as Record<string, string>);
-
-    // Get the current active profile ID (not name)
-    const activeProfileId = profileId || '';
-
-    // Helper function to find profile ID by profile name
-    const findProfileIdByName = (profileName: string): string | undefined => {
-        if (!profileDB) return undefined;
-        for (const [id, profile] of Object.entries(profileDB.db)) {
-            if (profile.profileName === profileName) {
-                return id;
-            }
-        }
-        return undefined;
-    };
-
-    const handleActiveProfileChangeByName = (profileName: string) => {
-        const targetProfileId = findProfileIdByName(profileName);
-        if (targetProfileId) {
-            handleActiveProfileChange(targetProfileId);
-        }
-    };
 
     const navigationItems = [
         {
@@ -464,7 +437,7 @@ export const ProfileSetupPage: FC = () => {
                                             options: profileOptions
                                         }}
                                         enableClearOption={false}
-                                        value={activeProfileId}
+                                        value={profileId}
                                         onValueChange={(value) => handleActiveProfileChange(value)}
                                     />
                                 </div>

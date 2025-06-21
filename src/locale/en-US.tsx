@@ -106,7 +106,7 @@ export const globalDict = {
     longitude: (<>Longitude</>),
     latitude: (<>Latitude</>),
 
-    // home
+    // radar
     radar: (<>Radar</>),
     likes: (<>Likes</>),
     inbox: (<>Inbox</>),

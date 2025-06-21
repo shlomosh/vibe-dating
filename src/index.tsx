@@ -12,7 +12,7 @@ import { init } from '@/init.ts';
 import './index.css';
 
 // Mock the environment in case, we are outside Telegram.
-import './mockEnv.ts';
+import './mock/telegram.ts';
 
 const root = ReactDOM.createRoot(document.getElementById('root')!);
 

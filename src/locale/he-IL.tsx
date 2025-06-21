@@ -95,7 +95,7 @@ export const globalDict = {
     longitude: (<>קו אורך</>),
     latitude: (<>קו רוחב</>),
     
-    // home
+    // radar
     radar: (<>ראדר</>),
     likes: (<>מועדפים</>),
     inbox: (<>הודעות</>),

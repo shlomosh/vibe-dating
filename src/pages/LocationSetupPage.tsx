@@ -92,11 +92,11 @@ export const LocationSetupPage: FC = () => {
     }, [selectedCoordinates]);
 
     const handlePrevPageClick = () => {
-        navigate('/profile-setup');
+        navigate('/profile');
     }
 
     const handleNextPageClick = () => {
-        navigate('/home');
+        navigate('/radar');
     }
 
     const handleLocationSelect = (location: { lat: number; lng: number; address: string }) => {

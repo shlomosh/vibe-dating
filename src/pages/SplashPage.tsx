@@ -26,7 +26,7 @@ export const SplashPage: FC = () => {
     const { translations: { globalDict } } = useLanguage();
 
     const handleNextClick = () => {
-        navigate('/profile-setup');
+        navigate('/profile');
     }
 
     return (

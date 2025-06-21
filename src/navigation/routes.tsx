@@ -9,7 +9,7 @@ import { SplashPage } from '@/pages/SplashPage';
 import { TermsAndConditionsPage } from '@/pages/TermsAndConditionsPage';
 import { ProfileSetupPage } from '@/pages/ProfileSetupPage';
 import { LocationSetupPage } from '@/pages/LocationSetupPage';
-import { HomePage } from '@/pages/HomePage';
+import { RadarPage } from '@/pages/RadarPage';
 import { InboxPage } from '@/pages/InboxPage';
 import { ChatPage } from '@/pages/ChatPage';
 
@@ -23,9 +23,9 @@ interface Route {
 export const routes: Route[] = [
   { path: '/', Component: SplashPage },
   { path: '/read-terms-conditions', Component: TermsAndConditionsPage, title: 'Terms and Conditions' },
-  { path: '/profile-setup', Component: ProfileSetupPage, title: 'Profile Select' },
-  { path: '/location-setup', Component: LocationSetupPage, title: 'Location Setup' },
-  { path: '/home', Component: HomePage, title: 'Home' },
+  { path: '/profile', Component: ProfileSetupPage, title: 'Profile Select' },
+  { path: '/location', Component: LocationSetupPage, title: 'Location Setup' },
+  { path: '/radar', Component: RadarPage, title: 'Radar' },
   { path: '/inbox', Component: InboxPage, title: 'Inbox' },
   { path: '/chat/:userId', Component: ChatPage, title: 'Chat' },
   { path: '/demo-index', Component: IndexPage },

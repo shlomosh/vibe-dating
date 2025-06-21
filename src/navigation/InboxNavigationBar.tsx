@@ -15,7 +15,7 @@ export const InboxNavigationBar: React.FC = () => {
         navigate('/inbox');
         break;
       case 'Radar':
-        navigate('/home');
+        navigate('/radar');
         break;
       case 'Likes':
         break;
@@ -37,7 +37,7 @@ export const InboxNavigationBar: React.FC = () => {
     { 
       icon: RadarIcon, 
       label: globalDict.radar, 
-      isActive: isActive('/home'),
+      isActive: isActive('/radar'),
       onClick: () => handleNavigationClick("Radar")
     },
     { 

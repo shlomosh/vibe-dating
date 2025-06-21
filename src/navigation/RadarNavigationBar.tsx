@@ -5,7 +5,7 @@ import { ContentNavigation } from '@/components/ContentNavigation';
 import { useFiltersDrawer } from '@/contexts/FiltersDrawerContext';
 import { useLanguage } from '@/contexts/LanguageContext';
 
-export const HomeNavigationBar: React.FC = () => {
+export const RadarNavigationBar: React.FC = () => {
   const navigate = useNavigate();
   const location = useLocation();
   const { openDrawer } = useFiltersDrawer();
@@ -17,7 +17,7 @@ export const HomeNavigationBar: React.FC = () => {
         navigate('/inbox');
         break;
       case 'Radar':
-        navigate('/home');
+        navigate('/radar');
         break;
       case 'Filters':
         openDrawer();
@@ -42,7 +42,7 @@ export const HomeNavigationBar: React.FC = () => {
     { 
       icon: RadarIcon, 
       label: globalDict.radar, 
-      isActive: isActive('/home'),
+      isActive: isActive('/radar'),
       onClick: () => handleNavigationClick("Radar")
     },
     { 
